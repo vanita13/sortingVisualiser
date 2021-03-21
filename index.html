@@ -20,9 +20,9 @@
                 <button  id="array" onclick="myFunction()" class=" btn btn-outline-success array" >new array </button>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button id="bubble"  onclick= "bubbleSort()" class="btn btn-outline-primary sorting" >bubble sort </button>
-                    <button id="merge" class="btn btn-outline-primary sorting" >merge sort </button>
+                    
                     <button id="insertion" onclick="insertionSort()" class="btn btn-outline-primary sorting" >insertion sort</button>
-                    <button id="quick" class="btn btn-outline-primary sorting" >quick sort </button>
+                    
                     <button id="selection" onclick="selectionSort()" class="btn btn-outline-primary sorting" >selection sort </button>
                     
                 </div>
@@ -32,21 +32,30 @@
             </div>
                       
         </nav>
+
         <div class="center">
+            <span>
+               <input id="arr_sz" type="range"  min=20 max=100 step=1 value=50>
+       </span> <br>
             <div id = "bars" class="flex-container">
 
             </div>
         </div>
 
         <script>
+            var arr_size=document.querySelector("#arr_sz"); 
+           arr_size.addEventListener("input",myFunction);
            myFunction();
 
             function myFunction() {
                 document.getElementById("bars").innerHTML= '';
+                var no_of_bar=arr_size.value;
+                console.log(no_of_bar);
                 var array = [];
-                for (let i =0 ;i <100;i++){
+                for (let i =0 ;i <no_of_bar;i++){
                 array.push(Math.floor(Math.random() * 100) + 1);
                 }
+                console.log(array);
                 array.forEach(element => {
                     var para = document.createElement("div");
                 //para.style.border = "1px solid #ff0000";
@@ -58,8 +67,14 @@
                 //para.innerText = element;
 
                 document.getElementById("bars").appendChild(para);
-});
-}
+                });
+            }
+            function callQuickSort(){
+                var x = document.getElementById("bars").querySelectorAll(".flex-child");
+                quickSort(x,0,99);
+            }
+            
+
             
         </script>
 
