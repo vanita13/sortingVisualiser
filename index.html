@@ -8,7 +8,6 @@
         <script src = "./jsFiles/merge.js"></script>
         <script src = "./jsFiles/quick.js"></script>
         <script src = "./jsFiles/selection.js"></script>
-        <script src = "./jsFiles/sorting.js"></script>
     </head>
     <body style="background-color: black;">
         
@@ -37,7 +36,10 @@
 
         <div class="center">
             <span>
+                <label for="arr_size" style="color: azure;position: relative;text-align: center;">No. of Elements</label>
                <input id="arr_sz" type="range"  min=20 max=100 step=1 value=50>
+               <label for="speed" style="color: azure;position: relative;text-align: center;">Speed</label>
+               <input id="speed" type="range"  min=-1000 max=0 step=-50 value=-400>
        </span> <br>
             <div id = "bars" class="flex-container">
 
@@ -47,17 +49,24 @@
         <script>
            var arr_size=document.querySelector("#arr_sz"); 
            arr_size.addEventListener("input",myFunction);
+           var animation_speed = document.querySelector("#speed");
+           anime_speed = Math.abs(animation_speed.value);
+           animation_speed.addEventListener("input",updateSpeed);
+           function updateSpeed(){
+                anime_speed =Math.abs(document.querySelector("#speed").value);
+                console.log(anime_speed);
+           }
            myFunction();
 
             function myFunction() {
                 document.getElementById("bars").innerHTML= '';
                 var no_of_bar=arr_size.value;
-                console.log(no_of_bar);
+                //console.log(no_of_bar);
                 var array = [];
                 for (let i =0 ;i <no_of_bar;i++){
                 array.push(Math.floor(Math.random() * 100) + 1);
                 }
-                console.log(array);
+                //console.log(array);
                 array.forEach(element => {
                     var para = document.createElement("div");
                 //para.style.border = "1px solid #ff0000";
@@ -71,9 +80,9 @@
                 document.getElementById("bars").appendChild(para);
                 });
             }
-            function callQuickSort(){
+            async function callQuickSort(){
                 var x = document.getElementById("bars").querySelectorAll(".flex-child");
-                quickSort(x,0,arr_size.value-1);
+                await quickSort(x,0,arr_size.value-1);
             }
             
 

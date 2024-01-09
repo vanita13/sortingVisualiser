@@ -30,9 +30,9 @@ function swap(el1,el2)
             //     //x[j+1].innerHTML = "hi";
                  x[j].style.background="red";
                  x[j+1].style.background="red";
-                 await new Promise(resolve => setTimeout(() => {resolve(), 200000}));
+                 await new Promise(resolve => setTimeout(() => {resolve()}, 200));
                  swap(x[j],x[j+1]);
-                 await new Promise(resolve => setTimeout(() => {resolve(), 200000}));
+                 await new Promise(resolve => setTimeout(() => {resolve()}, 200));
                  x[j].style.background="yellow";
                  x[j+1].style.background="yellow";
              }

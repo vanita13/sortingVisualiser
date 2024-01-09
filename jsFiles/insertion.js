@@ -11,9 +11,9 @@ async function insertionSort(){
             //console.log(x[j]+" "+x[j].style.height+x[j+1]+" "+x[j+1].style.height);
             x[j].style.background="red";
             x[j+1].style.background="red";
-            await new Promise(resolve => setTimeout(() => {resolve(), 200000}));
+            //await new Promise(resolve => setTimeout(() => {resolve()}, 200));
             x[j + 1].style.height = x[j].style.height
-            await new Promise(resolve => setTimeout(() => {resolve(), 200000}));
+            //await new Promise(resolve => setTimeout(() => {resolve()}, 200));
             x[j].style.background="yellow";
             x[j+1].style.background="yellow";
             //console.log(x[j]+" "+x[j].style.height+x[j+1]+" "+x[j+1].style.height);
@@ -24,9 +24,9 @@ async function insertionSort(){
         //swap(x[j+1],keyNode);
         x[j+1].style.background="red";
         x[i].style.background="red";
-        await new Promise(resolve => setTimeout(() => {resolve(), 200000}));
+        await new Promise(resolve => setTimeout(() => {resolve()}, 200));
         x[ j+ 1].style.height = key+"px"; 
-        await new Promise(resolve => setTimeout(() => {resolve(), 200000}));
+        await new Promise(resolve => setTimeout(() => {resolve()}, 200));
         x[i].style.background="yellow";
         x[j+1].style.background="yellow";
 

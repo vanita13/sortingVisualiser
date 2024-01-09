@@ -27,9 +27,9 @@ async function selectionSort(){
         }
         x[i].style.background="red";
         x[minIndex].style.background="red";
-        await new Promise(resolve => setTimeout(() => {resolve(), 200000}));
+        await new Promise(resolve => setTimeout(() => {resolve()}, 200));
         swap(x[i],x[minIndex]);
-        await new Promise(resolve => setTimeout(() => {resolve(), 200000}));
+        await new Promise(resolve => setTimeout(() => {resolve()}, 200));
         x[i].style.background="yellow";
         x[minIndex].style.background="yellow";
     }
